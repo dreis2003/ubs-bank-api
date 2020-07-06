@@ -24,15 +24,7 @@ public class LojistaServiceImpl implements LojistaService {
 	@Override
 	public Stream<LojistaDTO> calcularVenda(String produto, int qtdeLojistas) {
 		Stream<Estoque> estoque = estoqueService.getEstoquebyProduto(produto);
-		Stream<Estoque> estoquep = estoqueService.getEstoquebyProduto(produto);
 
-		int qtdEstoque = estoquep.mapToInt(Estoque::getQuantity).sum();
-
-		//TODO - Validar esta condição
-//		if (qtdEstoque % qtdeLojistas != 0) {
-//			return null;
-//		}
-		
 		List<LojistaDTO> lojistas = new ArrayList<>();
 		
 		for(int i=0; i< qtdeLojistas; i++) { 

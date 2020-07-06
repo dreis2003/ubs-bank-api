@@ -26,7 +26,6 @@ public class JsonReader {
 		InputStream is = classLoader.getResourceAsStream(fileName);
 		
 		ObjectMapper mapper = new ObjectMapper();
-		
 		mapper.registerModule(new JavaTimeModule());
 		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
@@ -45,7 +44,10 @@ public class JsonReader {
 				}
 
 			}
-			return estoqueLista.stream().distinct().collect(Collectors.toList());
+			return estoqueLista
+					.stream()
+						.distinct()
+							.collect(Collectors.toList());
 
 		} catch (Exception ex) {
 			return null;
